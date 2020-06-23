@@ -4,6 +4,11 @@ title:  "Welcome to Jekyll!"
 date:   2020-06-23 15:28:04 +0200
 categories: jekyll update
 ---
+
+### As I'm still new to his, I would like to keep this for future reference
+
+### And this blog is still looks ugly. I won't beautify it for now since there are more important things to be done but perhaps will do it in the future. 
+
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
 Jekyll requires blog post files to be named according to the following format:
