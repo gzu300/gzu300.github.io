@@ -21,9 +21,7 @@
 title: G.Zhu's blog
 email: zhuguanchen@me.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This blog mainly serves the purpose of log for my study especially programming, NGS, etc, 
-  since usually there'll be lots of code snippets as examples. 
-  If you found any of my logs are helpful for you, that'll be even better. Happy learning!
+  Log for my study process.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://gzu300.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: I don't have a twitter
