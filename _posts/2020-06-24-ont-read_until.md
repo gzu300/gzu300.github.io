@@ -38,12 +38,12 @@ def base_call_and_compare_to_ref():
     
     return read_in_target_region
 
-class Read_Until_Client():
-    def run():
+class Read_Until_Client:
+    def run(self):
         self._process_thread = Thread(target=self._runner, name=generate_name())
         self._process_thread.start()
         
-    def _runner():
+    def _runner(self):
         yield self._get_and_process_read_from_device()
         
     def reset():
