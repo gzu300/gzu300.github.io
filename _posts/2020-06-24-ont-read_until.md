@@ -9,7 +9,7 @@ they got ~11.46X depth. Total amount of data is about 7.5Gb. They also sequenced
 be spot at 3rd hour of sequencing and the precise breakpoint can be seen at 15th hour.
 
 So I also studied the code posted on github [https://github.com/LooseLab/ru](https://github.com/LooseLab/ru).  
-To record down the structure of the code, details are skipped.
+The structure of the code looks like this, if it's right.
 
 ```python
 def main():
