@@ -3,7 +3,6 @@ layout: post
 title:  Matplotlib
 date:   2020-11-15
 ---
-### For python scripts
 
 ```python
 import matplotlib.pyplot as plt
