@@ -12,8 +12,12 @@ date:  2020-11-28
 ```python
 try:
     func() #This function might raise error
-except MyError:
-    ... #Error is catched here
+except MyError1:
+    ... #Error1 is catched here
+except MyError2 as error2:
+    ... #for error2
+except (MyError3, MyError4) as error3_4:
+    ... # catch multiple errors
 else:
     ... # when no errors are raised in try block
 finally:
