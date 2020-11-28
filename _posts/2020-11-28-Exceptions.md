@@ -61,7 +61,7 @@ class Error2(ValueError): pass
 try:
     func() # raise Error1 or Error2
 Except ValueError:
-    print('error caught')
+    print(sys.exc_info())
 ```
 
-### Use sys.exc_info() for specific error
+### Use sys.exc_info() to show. specific error. It returns a tuple contains (name, value, traceback object)
