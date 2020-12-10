@@ -1,5 +1,5 @@
 ---
-date: 12-10-2020
+date: 10-12-2020
 title: Python class __getitem__ vs __getattr__
 ---
 
