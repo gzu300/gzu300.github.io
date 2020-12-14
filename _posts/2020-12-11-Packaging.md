@@ -1,6 +1,6 @@
 ---
 date: 2020-12-11
-title: Packaging and imports
+title: Packaging, ```setuptools``` and imports
 ---
 
 ## ```__init__.py``` files help reduce redundancy in ```import```
