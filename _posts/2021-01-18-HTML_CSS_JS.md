@@ -36,8 +36,6 @@ Syntax example:
 ```JavaScript
 document.getElementbyId('colorDiv').style.backgroundColor='green' //vernilla JS
 $('#colorDev').css('backgroundColor', 'green'); //jQuery libary way to set background color
-```
-[cheatsheet for HTML](https://websitesetup.org/wp-content/uploads/2019/08/HTML-CHEAT-SHEET.png)  
-[cheatsheet for CSS](https://htmlcheatsheet.com/css/)  
-[cheatsheet for JS](https://htmlcheatsheet.com/js/)  
+``` 
+[cheatsheet for HTML, CSS, JS and jQuery](https://htmlcheatsheet.com)  
 [jQuery API](https://api.jquery.com)
