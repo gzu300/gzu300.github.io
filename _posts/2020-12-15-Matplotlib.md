@@ -2,6 +2,19 @@
 date: 15-12-2020
 title: Matplotlib
 ---
+## set backends for different usecases
+### *Always set backends at the top before importing and plotting*
+### set backends for different use cases. Usually ```notebook``` for interactive scenario like jupyter notebook or shell. ```inline``` for static plots for applications. 
+Other backend such as ```qt``` is to embed with GUIs.
+```python
+import matplotlib
+matplotlib.use('qt5agg') #when wrong argument given, a list of arguments will be given in the error msg.
+```
+### magic functions in IPython
+```python
+%matplotlib inline # or notebook
+import matplotlib.pyplot as plt
+```
 ## How to create a figure
 ### create a  ```figure``` instance holds the plot itself. Then use ```pyplot``` to make different kinds of plots. This is a quick way but not for complex plots with several panels.
 #### Note: there is a 'current' plot concept in ```pyplot``` style. All the operations will be done on 'current' plot
