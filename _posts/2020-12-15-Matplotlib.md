@@ -15,11 +15,49 @@ matplotlib.use('qt5agg') #when wrong argument given, a list of arguments will be
 %matplotlib inline # or notebook
 import matplotlib.pyplot as plt
 ```
+## structure
+### ```Figure``` object
+This is the object that keeps track all the ```axes```. Typically one ```Figure``` object contains many ```Axes``` objects. An empty ```Figure``` can be created explicitly by ```plt.figure()``` and add ```Axes``` by ```add_subplots()```
+```python
+import matplotlib.pyplot as plt
+#first way
+fig = plt.figure()
+ax = fig.subplots() #this add one Axes to the figure
+ax.plot(...)
+#second way: create one plot
+fig, ax = plt.subplots()
+ax.plot(...)
+#third way
+fig, (ax1, ax2) = plt.subplots(1,2)
+for each in [ax1, ax2]:
+  each.plot(...)
+```
+```python
+#forth way
+fig = plt.figure()
+gs = fig.add_gridspec(2,2)
+ax1 = fig.add_subplot(gs[0,0]) # takes [0,0] position
+ax2 = fig.add_subplot(gs[0,1]) # takes [0,1] position
+ax3 = fig.add_subplot(gs[1,:]) #takes the whole second row
+ax1.plot(...)
+ax2.plot(...)
+...
+```
+### ```Axes``` object
+- This is what you think of as 'a plot', it is the region of the image with the data space. 
+- ```Axes``` has set methods for ticks, x/y limits, titles, etc.
+- ```Axes``` also has 2 or 3 ```Axis``` objects which control axies in ```Axes```
+- check api for detailed methods
+### ```Axis``` object
+### ```Artist``` object
+The most lowlevel object, all the objects that can be shown in the image is the child of ```Artist```
+
 ## How to create a figure
 ### create a  ```figure``` instance holds the plot itself. Then use ```pyplot``` to make different kinds of plots. This is a quick way but not for complex plots with several panels.
 #### Note: there is a 'current' plot concept in ```pyplot``` style. All the operations will be done on 'current' plot
+### pyplot style
 ```python
-### Quick Matlab-style 
+### Quick Matlab(pyplot)-style 
 plt.figure()
 plt.plot()
 plt.axis([xmin, xmax, ymin, ymax])
@@ -52,3 +90,4 @@ fmt = '.r--' # point, red dashed line
 plt.plot(x, y, fmt)
 plt.scatter() #similar to plot(). but it is more refined
 ```
+## Events(interactivity) driven plots.
