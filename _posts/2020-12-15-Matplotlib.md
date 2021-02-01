@@ -20,10 +20,12 @@ import matplotlib.pyplot as plt
 This is the object that keeps track all the ```axes```. Typically one ```Figure``` object contains many ```Axes``` objects. An empty ```Figure``` can be created explicitly by ```plt.figure()``` and add ```Axes``` by ```add_subplots()```
 ```python
 import matplotlib.pyplot as plt
+
 #first way
 fig = plt.figure()
 ax = fig.subplots() #this add one Axes to the figure
 ax.plot(...)
+
 #second way: create one plot
 fig, ax = plt.subplots()
 ax.plot(...)
@@ -31,8 +33,7 @@ ax.plot(...)
 fig, (ax1, ax2) = plt.subplots(1,2)
 for each in [ax1, ax2]:
   each.plot(...)
-```
-```python
+  
 #forth way
 fig = plt.figure()
 gs = fig.add_gridspec(2,2)
