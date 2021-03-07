@@ -26,9 +26,32 @@ replaced by the copy module
 Still have to be implemented by syntax
 
 ## 7 structural patterns
+Still exists and useful to organize the code.
 ### Adapter
 Still useful. Override methods with unified methods names
 ### Bridge
 Still useful. Seperate a business layer out of the lower level so that lower level only stores data, business layer operates
 ### Composite
 Still useful. Has a child object which is the basic element or the object like itself recursively. Store children objects as list, dict or just the object itself.
+
+### Facade
+Still useful. Builder creates a complex object. Facade operates a complex object. Simple example is ```find()```method of a object that lets us do not have to write iteration to search the whole data.
+### Flyweight
+still useful
+### Proxy
+Performed by ```__getattr__()``` in Python
+### Decorator
+same as decorators in python
+
+## 11 behavioral patterns
+They are big solutions for big probelms and some of the patterns turn up into libraries. But still useful in python. They can be collapsed into callbacks or data structures that hold functions.
+### Interperter
+Python itself is interpreted
+### Iterator
+is built-in in Python. implement ```yield``` in ```__iter__``` method
+### Mediator
+still useful
+### Memento
+### Observer
+still useful. esp in GUI and DOMs
+### State
