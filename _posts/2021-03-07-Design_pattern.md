@@ -4,7 +4,7 @@ date: 2021-03-07
 ---
 
 # Some of the 'GoF' design patterns disapper in Python
-
+note: if a module imports more than 3 major modules. see if it can be refactored.
 ## 'program to interfaces, not implementation'
 Java or C++ fixes the type of output naturally(eg. if File format, then WebSocket format will not be a valid output). So have to write an interface that fakes to be any types.
 
@@ -25,3 +25,10 @@ replaced by the copy module
 ### Builder
 Still have to be implemented by syntax
 
+## 7 structural patterns
+### Adapter
+Still useful. Override methods with unified methods names
+### Bridge
+Still useful. Seperate a business layer out of the lower level so that lower level only stores data, business layer operates
+### Composite
+Still useful. Has a child object which is the basic element or the object like itself recursively. Store children objects as list, dict or just the object itself.
