@@ -49,9 +49,16 @@ ax2.plot(...)
 - ```Axes``` has set methods for ticks, x/y limits, titles, etc.
 - ```Axes``` also has 2 or 3 ```Axis``` objects which control axies in ```Axes```
 - check api for detailed methods
-### ```Axis``` object
+### ```Axis``` object ```Text``` ```Patch``` etc. Check API when necessary
 ### ```Artist``` object
 The most lowlevel object, all the objects that can be shown in the image is the child of ```Artist```
+### ```twinx()``` method
+Add a second y axis. Example:
+```python
+fig, ax = plt.subplots()
+ax.plot(...)
+ax2 = ax.twinx() #this will add a second y axis
+```
 
 ## How to create a figure
 ### create a  ```figure``` instance holds the plot itself. Then use ```pyplot``` to make different kinds of plots. This is a quick way but not for complex plots with several panels.
