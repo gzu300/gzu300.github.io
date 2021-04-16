@@ -88,6 +88,44 @@ class SongSerializer2(SongSerializer1): #methods interfaces interited are  produ
         return serializer
     
 #step 3: When methods are not using 'self', seperate them into functions.
+class SongSerializer(object):
+    '''
+    of course this class is not necessary. But imagine it's an existed code.
+    Refactor this class into a function will break the interface in other scirpt.
+    unless we have high % of unit test coverage, otherwise be carefule to do so.
+    '''
+    def serialize(self, song, format):
+        serializer = _get_serializer(format)
+        return serializer(song)
+
+# def serialize(song, format):
+#     serializer = _get_serializer(format)
+#     return serializer(song)
+
+def _get_serializer(format):
+    serializers = {
+        'JSON': _serialize_to_jons,
+        'XML': _serialize_to_xml
+    }
+    serializer = serializers.get(format)
+    if not serializer:
+        raise ValueError(format)
+    return serializer
+
+def _serialize_to_jons(song):
+    payload = {
+            'id': song.song_id,
+            'title': song.title,
+            'artist': song.artist
+        }
+    return json.dumps(payload)
+def _serialize_to_xml(song):
+    song_info = et.Element('song', attrib={'id': song.song_id})
+    title = et.SubElement(song_info, 'title')
+    title.text = song.title
+    artist = et.SubElement(song_info, 'artist')
+    artist.text = song.artist
+    return et.tostring(song_info, encoding='unicode')
 ```
 ### Prototype
 replaced by the copy module
