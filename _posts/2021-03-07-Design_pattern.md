@@ -125,6 +125,23 @@ def _serialize_to_xml(song):
     artist.text = song.artist
     return et.tostring(song_info, encoding='unicode')
 ```
+```python
+def client(target, target_id):
+    product = _creator_get_implementation(target_id)
+    return product(target)
+def _creator_get_implementation(target_id):
+    products = {
+        'target_id1': product1,
+        'target_id2': product2
+    }
+    product = products.get(target_id)
+    if not product:
+        raise ValueError(target_id)
+def product1(target):
+    return
+def product2(target):
+    return
+```
 ### Prototype
 replaced by the copy module
 ### Builder
