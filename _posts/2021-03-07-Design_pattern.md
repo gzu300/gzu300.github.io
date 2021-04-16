@@ -29,7 +29,7 @@ So elements are:
 - concrete implementations
 Here is the example of refactoring a class into factory pattern:
 ```python
-we may endup here for the first versions
+#we may endup here for the first versions
 class SongSerializer(object):
     def serialize(self, song, format):
         if format == 'JSON':
