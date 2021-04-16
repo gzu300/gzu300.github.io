@@ -3,11 +3,11 @@ title: Design Pattern in Python
 date: 2021-03-07
 ---
 
-# Some of the 'GoF' design patterns disapper in Python
+# Some of the 'GoF' design patterns disappear in Python
 note: if a module imports more than 3 major modules. see if it can be refactored.
 ## 'program to interfaces, not implementation'
 Java or C++ fixes the type of output naturally(eg. if File format, then WebSocket format will not be a valid output). So have to write an interface that fakes to be any types.
-
+## ```if/elif/else``` should be used only when these branches serve different goals. If found different branch serve the same goal but just different execution, look for a common interface.
 ## 5 creational patterns
 ### Factory method, Abstract Factory and Singleton patterns is trivial in Python since a function in Python could possibly return any type of class.   
 Singleton pattern in fact is a alternate to global variable in other languages. But Python modules can not intercept global variables. So Python's singletons is just function which looks like:
