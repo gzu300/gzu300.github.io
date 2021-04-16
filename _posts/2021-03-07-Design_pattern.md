@@ -20,6 +20,75 @@ def get_singleton(cls=MyClass):
         _singletone = cls()
     return _singleton
 ```
+### Factory
+The mechanics of Factory Method are:\
+Client depends on one concrete implementation of an **interface**. Which concrete implementation to be used is returned and decided by **creator component**. Of course, every concrete implementation should be implemented, as methods or functions.
+So elements are:
+- client
+- creator
+- concrete implementations
+Here is the example of refactoring a class into factory pattern
+```python
+#we may endup here for the first versions
+class SongSerializer(object):
+    def serialize(self, song, format):
+        if format == 'JSON':
+            song_info = {
+                'id': song.song_id,
+                'title': song.title,
+                'artist': song.artist
+            }
+            return json.dumps(song_info)
+        if format == 'XML':
+            song_info = et.Element('song', attrib={'id': song.song_id})
+            title = et.SubElement(song_info, 'title')
+            title.text = song.title
+            artist = et.SubElement(song_info, 'artist')
+            artist.text = song.artist
+            return et.tostring(song_info, encoding='unicode')
+        else:
+            raise ValueError(format)
+
+# refactor            
+# step 1: move implements to interfaces            
+class SongSerializer1(object):
+    def serialize(self, song, format): #now this is the client code
+        if format == 'JSON': return self._serialize_to_jons(song) #these are the interfaces
+        if format == 'XML': return self._serialize_to_xml(song)
+        else: raise ValueError(format)
+            
+    def _serialize_to_jons(self, song): #these are the concrete implementations
+        payload = {
+                'id': song.song_id,
+                'title': song.title,
+                'artist': song.artist
+            }
+        return json.dumps(payload)
+    def _serialize_to_xml(self, song):
+        song_info = et.Element('song', attrib={'id': song.song_id})
+        title = et.SubElement(song_info, 'title')
+        title.text = song.title
+        artist = et.SubElement(song_info, 'artist')
+        artist.text = song.artist
+        return et.tostring(song_info, encoding='unicode')
+#step 3: With common interface, we could send 'format' as a parameter to control the which concrete implementation to use.
+#this is the central idea of Factory pattern.
+class SongSerializer2(SongSerializer1): #methods interfaces interited are  product component
+    def serialize(self, song, format): #this is the application code. i.e. client component
+        serializer = self._get_serializer(format)
+        return serializer(song)
+    def _get_serializer(self, format):# this is the                        creator component
+        serializers = {
+            'JSON': self._serialize_to_jons,
+            'XML': self._serialize_to_xml
+        }
+        serializer = serializers.get(format)
+        if not serializer:
+            raise ValueError(format)
+        return serializer
+    
+#step 3: When methods are not using 'self', seperate them into functions.
+```
 ### Prototype
 replaced by the copy module
 ### Builder
