@@ -27,7 +27,7 @@ So elements are:
 - client
 - creator
 - concrete implementations
-Here is the example of refactoring a class into factory pattern\
+Here is the example of refactoring a class into factory pattern:
 ```python
 #we may endup here for the first versions
 class SongSerializer(object):
