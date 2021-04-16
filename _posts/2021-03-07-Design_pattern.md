@@ -89,11 +89,9 @@ class SongSerializer2(SongSerializer1): #methods interfaces interited are  produ
     
 #step 3: When methods are not using 'self', seperate them into functions.
 class SongSerializer(object):
-    '''
-    of course this class is not necessary. But imagine it's an existed code.
-    Refactor this class into a function will break the interface in other scirpt.
-    unless we have high % of unit test coverage, otherwise be carefule to do so.
-    '''
+    #of course this class is not necessary. But imagine it's an existed code.
+    #Refactor this class into a function will break the interface in other scirpt.
+    #unless we have high % of unit test coverage, otherwise be carefule to do so.
     def serialize(self, song, format):
         serializer = _get_serializer(format)
         return serializer(song)
