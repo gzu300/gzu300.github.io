@@ -25,8 +25,9 @@ The mechanics of Factory Method are:\
 Client depends on one concrete implementation of an **interface**. Which concrete implementation to be used is returned and decided by **creator component**. Of course, every concrete implementation should be implemented, as methods or functions.
 So elements are:
 - client
-- creator
+- creator/factory
 - concrete implementations
+
 Here is the example of refactoring a class into factory pattern:
 ```python
 #we may endup here for the first versions
