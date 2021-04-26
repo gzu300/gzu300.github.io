@@ -77,3 +77,53 @@ def objs(): #external systems call use case layer. And this return a 'simple int
     )
 ```
 - Side bar: Testing databse needs a integration test, which means need a real database
+
+### the graph of the architechture
+<img src="../images/layered_archi.jpg" width="500"/>
+
+### the entire code
+```python
+#web framework
+@blueprint.route('/objs', methods=['GET'])
+def objs():
+    repo = PostgresRepo(CONNECTION_STR)
+    use_case = uc.ObjListUseCase(repo)
+    result = use_case.execute(request.args)
+    
+    return Response(json.dumps(result))
+#gateway
+class PostgresRepo:
+    def __init__(self, CONNECTION_STR):
+        self.ng = create_engine(CONNECTION_STR)
+        
+    def _create_objects(self, results):
+        return [Obj(q.code, q.price for q in results]
+        
+    def list(self, filters):
+        DBSession = sessionmaker(bind=self.ng)
+        session = DBSession()
+        query = ...
+        return self._create_objects(query.all())
+    
+#use case. So it can be seen that business layers is role that coordinates the whole program. But still, we can not skip a layer to call one layer upper or down.
+class ObjListUseCase:
+    def __init__(self, repo):
+        self.repo = repo
+    def execute(self, params):
+        #business logic
+        result = self.repo.list(filters)
+        #business logic
+        return final_result
+#entity
+class Obj:
+    def __init__(self, code, price):
+        self.code = code
+        self.price = price
+```
+The architechture in my opnion is actually like:
+1. web framework
+2. json(Gateway)
+3. use case
+4. DB interface(Gateway). Actually convers the DB query into DB. So 5 and 6 might be considered as in parallel.
+5. entity
+6. DB
