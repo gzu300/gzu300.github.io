@@ -4,7 +4,7 @@ title: Python class __getitem__ vs __getattr__
 ---
 
 When came to get attribute in a real project yesterday, I got confused. What is the difference between __getitem__ and __getattr__, __setitem__ and __setattr__?
-
+## ```__getitem``` slices and index the data stored in the class(either stored w or w/o instantiated). ```__getattr___``` operates on attribute!
 ##  ```__getitem__``` and ```__setitem__```, called containers. Get and set data.
 ### example
 ```python
@@ -16,6 +16,18 @@ class Indexer:
         return self.data[index] = value
     def __delitem__(self, index):
         del self.data[index]
+```
+### use of ```slice()``` built-in and ```tuple``` for multi-dimensional slicing. For the usual ```a[1:2]```, ```1:2``` is a slice object with built-in ```slice``` func.
+```python
+class Indexer:
+    '''
+    only overloads tuple 
+    '''
+    data = {'a': pd.DataFrame({'a': [1,2,3]})}
+    def __getitem__(self, index):
+        if isinstance(index, tuple):
+            return self.data[index[0]].loc[index[1]]            
+```
 
 >>> x = Indexer() 
 >>> x[0]   #See, this makes direct index on class object, rather than x.data[0] possible.
