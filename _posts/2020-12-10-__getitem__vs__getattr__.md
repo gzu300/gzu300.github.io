@@ -16,7 +16,11 @@ class Indexer:
         return self.data[index] = value
     def __delitem__(self, index):
         del self.data[index]
+>>> x = Indexer() 
+>>> x[0]   #See, this makes direct index on class object, rather than x.data[0] possible.
+5
 ```
+
 ### use of ```slice()``` built-in and ```tuple``` for multi-dimensional slicing. For the usual ```a[1:2]```, ```1:2``` is a slice object with built-in ```slice``` func.
 ```python
 class Indexer:
@@ -29,10 +33,6 @@ class Indexer:
             return self.data[index[0]].loc[index[1]]            
 ```
 
->>> x = Indexer() 
->>> x[0]   #See, this makes direct index on class object, rather than x.data[0] possible.
-5
-```
 ### Notice ```__getitem__``` not only fetch data by index, it also makes iteration possible(of course other methods like __next__ etc also initiates iterations)
 
 ## ```__getattr__``` and ```__setattr__```, called attribute reference. Get and set attributes
