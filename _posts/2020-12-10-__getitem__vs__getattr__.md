@@ -30,7 +30,8 @@ class Indexer:
     data = {'a': pd.DataFrame({'a': [1,2,3]})}
     def __getitem__(self, index):
         if isinstance(index, tuple):
-            return self.data[index[0]].loc[index[1]]            
+            return self.data[index[0]].loc[index[1]]
+        return self.data.__getitem__(self, index)
 ```
 
 ### Notice ```__getitem__``` not only fetch data by index, it also makes iteration possible(of course other methods like __next__ etc also initiates iterations)
